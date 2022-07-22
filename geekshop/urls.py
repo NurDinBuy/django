@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from product.views import category, homepage, show_products
+from product.views import category, homepage, show_products, table
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('categories/', category),
     path('products/', show_products),
     path('', homepage),
-]
+    path('table/', table)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

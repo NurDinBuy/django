@@ -17,3 +17,7 @@ def show_products(request):
 
 def homepage(request):
     return HttpResponse('HOME PAGE')
+
+
+def table(request):
+    return render(request, 'table.html')
